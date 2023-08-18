@@ -86,3 +86,24 @@ use Values file values instead.
   {{- include "nodejs.defaultHealthCheck" . }}
 {{- end }}
 {{- end }}
+
+{{/*
+If enabled, use configMapRef and secretRef in deployment.
+*/}}
+{{- define "nodejs.envFrom" -}}
+{{- if and .Values.configmap.enabled .Values.secrets.enabled }}
+envFrom:
+- configMapRef:
+    name: {{ .Release.Name }}-configmap
+- secretRef:
+    name: {{ .Release.Name }}-secret
+{{- else if .Values.configmap.enabled }}
+envFrom:
+- configMapRef:
+    name: {{ .Release.Name }}-configmap
+{{- else if .Values.secrets.enabled }}
+envFrom:
+- secretRef:
+    name: {{ .Release.Name }}-secret
+{{- end }}
+{{- end }}

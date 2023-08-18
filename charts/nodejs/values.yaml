@@ -47,9 +47,14 @@ healthCheck:
     #   tcpSocket:
     #     port: 8080
 
+# Specifies whether a secrets manifest should be created.
+# Created secret manifest would be managed by tech-leads
+secrets:
+  enabled: false
+
 configmap:
   # Specifies whether a configmap should be created
-  create: false
+  enabled: false
   # Custom environments values in key-value pairs
   values: {}
     # DEBUG: false
