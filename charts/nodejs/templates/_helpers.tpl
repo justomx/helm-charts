@@ -69,7 +69,8 @@ livenessProbe:
   tcpSocket:
     port: 8080
 readinessProbe:
-  tcpSocket:
+  httpGet:
+    path: /health
     port: 8080
 {{- end }}
 
