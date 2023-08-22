@@ -44,7 +44,8 @@ healthCheck:
     #   tcpSocket:
     #     port: 8080
     # readinessProbe:
-    #   tcpSocket:
+    #   httpGet:
+    #     path: /health
     #     port: 8080
 
 # Specifies whether a secrets manifest should be created.
