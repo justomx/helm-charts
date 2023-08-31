@@ -95,16 +95,16 @@ If enabled, use configMapRef and secretRef in deployment.
 {{- if and .Values.configmap.enabled .Values.secrets.enabled }}
 envFrom:
 - configMapRef:
-    name: {{ .Release.Name }}-configmap
+    name: {{ .Release.Name }}
 - secretRef:
-    name: {{ .Release.Name }}-secret
+    name: {{ .Release.Name }}
 {{- else if .Values.configmap.enabled }}
 envFrom:
 - configMapRef:
-    name: {{ .Release.Name }}-configmap
+    name: {{ .Release.Name }}
 {{- else if .Values.secrets.enabled }}
 envFrom:
 - secretRef:
-    name: {{ .Release.Name }}-secret
+    name: {{ .Release.Name }}
 {{- end }}
 {{- end }}

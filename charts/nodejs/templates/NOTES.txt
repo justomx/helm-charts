@@ -20,5 +20,5 @@
   kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME 8080:$CONTAINER_PORT
 
   echo "For local environment visit http://127.0.0.1:8080 to use your application"
-  echo "For cluster endpoint visit http://{{ .Release.Name }}-service.{{ .Release.Namespace }}:{{ .Values.service.port }} to use your application"
+  echo "For cluster endpoint visit http://{{ .Release.Name }}.{{ .Release.Namespace }}:{{ .Values.service.port }} to use your application"
 {{- end }}
