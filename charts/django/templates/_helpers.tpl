@@ -107,3 +107,15 @@ envFrom:
     name: {{ .Release.Name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Define a default shell command if .Values.cronjob.command is no defined
+*/}}
+{{- define "django.cronjobCommand" -}}
+{{- if not .Values.cronjob.command }}
+{{- $releaseName := .Release.Name }}
+{{- printf "echo 'Hello from %s'" $releaseName }}
+{{- else }}
+{{ .Values.cronjob.command }}
+{{- end }}
+{{- end }}

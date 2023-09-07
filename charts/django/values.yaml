@@ -98,8 +98,12 @@ autoscaling:
 # Specifies whether a celery and celery beat deployments should be created
 celery:
   enabled: false
+  # Enable celery beat deployment
+  beat:
+    enabled: false
   # Replicas for celery and celery beat deployments
   replicas: 1
+  # if name is not set then "app" becomes default celery name
   name: ""
   resources: {}
     # limits:
@@ -108,6 +112,16 @@ celery:
     # requests:
     #   cpu: 100m
     #   memory: 128Mi
+
+# Specifies wheter a cronjob should be created
+cronjob:
+  enabled: false
+  # Cron sintax, check https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#schedule-syntax for more information
+  schedule: ""
+  # If not set, UTC will be defined instead
+  timeZone: ""
+  # Command to execute in cronjob
+  command: ""
 
 nodeSelector: {}
   # node-app: base
