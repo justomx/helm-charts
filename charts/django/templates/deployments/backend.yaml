@@ -10,6 +10,7 @@ spec:
   {{- end }}
   selector:
     matchLabels:
+      app.kubernetes.io/name: {{ .Release.Name }}
       {{- include "django.selectorLabels" . | nindent 6 }}
   template:
     metadata:
@@ -18,6 +19,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
+        app.kubernetes.io/name: {{ .Release.Name }}
         {{- include "django.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}

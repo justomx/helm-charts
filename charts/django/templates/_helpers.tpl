@@ -46,8 +46,7 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 Selector labels
 */}}
 {{- define "django.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "django.name" . }}
-app.kubernetes.io/instance: {{ .Release.Name }}
+app.kubernetes.io/instance: {{ include "django.name" . }}
 {{- end }}
 
 {{/*
