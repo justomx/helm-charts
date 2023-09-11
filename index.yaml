@@ -34,6 +34,16 @@ entries:
   nodejs:
   - apiVersion: v2
     appVersion: latest
+    created: "2023-09-11T22:28:56.907403845Z"
+    description: Base helm chart for nodejs microservices projects
+    digest: 6f079b9ad7c15f36f13df869bb82902ef8549212c46e9bea9dc45496e1700209
+    name: nodejs
+    type: application
+    urls:
+    - https://github.com/justomx/helm-charts/releases/download/nodejs-0.1.6/nodejs-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v2
+    appVersion: latest
     created: "2023-09-01T19:59:40.267685819Z"
     description: Base helm chart for nodejs microservices projects
     digest: 53b3776526bfb1f3e0b0618c106cccf6a2d226e1a466cf202eb9e3e022dd4fdb
@@ -112,4 +122,4 @@ entries:
     urls:
     - https://github.com/justomx/helm-charts/releases/download/nodejs-0.0.1/nodejs-0.0.1.tgz
     version: 0.0.1
-generated: "2023-09-07T23:30:19.765707732Z"
+generated: "2023-09-11T22:28:56.907446946Z"
