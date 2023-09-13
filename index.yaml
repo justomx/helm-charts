@@ -3,6 +3,16 @@ entries:
   django:
   - apiVersion: v2
     appVersion: latest
+    created: "2023-09-13T00:36:34.690556496Z"
+    description: Base helm chart for django services projects
+    digest: 5b4897fd9da2e10971220453818da7d6ca85537204d475dde3acd256f7072474
+    name: django
+    type: application
+    urls:
+    - https://github.com/justomx/helm-charts/releases/download/django-0.0.5/django-0.0.5.tgz
+    version: 0.0.5
+  - apiVersion: v2
+    appVersion: latest
     created: "2023-09-11T22:39:54.846789945Z"
     description: Base helm chart for django services projects
     digest: e6cf5b3d2d8a01d2615f2d0f4e8c9a8d2a4d08c0241148406d03ff53362dbdec
@@ -132,4 +142,4 @@ entries:
     urls:
     - https://github.com/justomx/helm-charts/releases/download/nodejs-0.0.1/nodejs-0.0.1.tgz
     version: 0.0.1
-generated: "2023-09-11T22:39:54.846823047Z"
+generated: "2023-09-13T00:36:34.690585997Z"
