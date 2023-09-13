@@ -63,8 +63,11 @@ configmap:
 
 service:
   type: ClusterIP
-  port: 8080
-  targetPort: 8080
+  # Specifies ports that will be forwarded for the application
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
 
 ingress:
   enabled: false
@@ -77,6 +80,7 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
+          port: 8080
 
 # Specifies resources for pods and containers, for more information check the following link
 # https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
