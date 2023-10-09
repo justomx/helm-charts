@@ -49,6 +49,9 @@ spec:
                 - "-A"
                 - {{ .Values.celery.name | default "app" }}
                 - status
+            initialDelaySeconds: 10
+            timeoutSeconds: 5
+            periodSeconds: 30
           resources:
             {{- toYaml .Values.celery.resources | nindent 12 }}
           {{- include "django.envFrom" . | nindent 10}}
