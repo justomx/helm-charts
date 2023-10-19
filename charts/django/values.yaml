@@ -33,6 +33,10 @@ securityContext: {}
 # runAsNonRoot: true
 # runAsUser: 1000
 
+# rest api django app
+restApi:
+  enabled: true
+
 # Custom liveness and readiness probes for deployment
 # For more info check the https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
 healthCheck:
