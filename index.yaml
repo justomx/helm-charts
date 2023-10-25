@@ -3,6 +3,16 @@ entries:
   django:
   - apiVersion: v2
     appVersion: latest
+    created: "2023-10-25T23:21:48.614636179Z"
+    description: Base helm chart for django services projects
+    digest: c27740d41400593fb9e9347c09bdd0fe02f1a87b3c15568572c30aaba47b5a44
+    name: django
+    type: application
+    urls:
+    - https://github.com/justomx/helm-charts/releases/download/django-0.1.4/django-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: latest
     created: "2023-10-19T18:51:36.488342029Z"
     description: Base helm chart for django services projects
     digest: c902bec1b71144d51a8e9d8e54a7dcc373f20ca25fee538bb7d11573e9838dc5
@@ -92,6 +102,16 @@ entries:
     - https://github.com/justomx/helm-charts/releases/download/django-0.0.1/django-0.0.1.tgz
     version: 0.0.1
   nodejs:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2023-10-25T23:21:48.710470479Z"
+    description: Base helm chart for nodejs microservices projects
+    digest: c0a41b3930a16ec8930eabe1b8da3bad398db85076f0716e6ebbddb9eb30ef2d
+    name: nodejs
+    type: application
+    urls:
+    - https://github.com/justomx/helm-charts/releases/download/nodejs-0.2.2/nodejs-0.2.2.tgz
+    version: 0.2.2
   - apiVersion: v2
     appVersion: latest
     created: "2023-10-12T23:51:59.816657197Z"
@@ -202,4 +222,4 @@ entries:
     urls:
     - https://github.com/justomx/helm-charts/releases/download/nodejs-0.0.1/nodejs-0.0.1.tgz
     version: 0.0.1
-generated: "2023-10-19T18:51:36.48839243Z"
+generated: "2023-10-25T23:21:48.71055268Z"
