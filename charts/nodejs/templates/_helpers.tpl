@@ -98,13 +98,23 @@ envFrom:
     name: {{ .Release.Name }}
 - secretRef:
     name: {{ .Release.Name }}
+- secretRef:
+    name: apm-vars
 {{- else if .Values.configmap.enabled }}
 envFrom:
 - configMapRef:
     name: {{ .Release.Name }}
+- secretRef:
+    name: apm-vars
 {{- else if .Values.secrets.enabled }}
 envFrom:
 - secretRef:
     name: {{ .Release.Name }}
+- secretRef:
+    name: apm-vars
+{{- else }}
+envFrom:
+- secretRef:
+    name: apm-vars
 {{- end }}
 {{- end }}

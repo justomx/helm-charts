@@ -18,6 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
+        app.version: {{ .Values.version | default (print "r-" .Release.Revision) }}
         app.kubernetes.io/name: {{ .Release.Name }}-celery-beat
         {{- include "django.selectorLabels" . | nindent 8 }}
     spec:
@@ -34,6 +35,19 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: _DEPLOY_REVISION
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app.version']
+            - name: _POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: ELASTIC_APM_SERVICE_NODE_NAME
+              value: "$(_POD_NAME):$(_DEPLOY_REVISION)"
+            - name: ELASTIC_APM_SERVICE_NAME
+              value: {{ .Release.Name }}
           command:
             - celery
             - "-A"
