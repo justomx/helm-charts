@@ -1,0 +1,76 @@
+{{- if .Values.celery.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-celery
+  labels:
+    {{- include "java.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.celery.replicas }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ .Release.Name }}-celery
+      {{- include "java.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        app.version: {{ .Values.version | default (print "r-" .Release.Revision) }}
+        app.kubernetes.io/name: {{ .Release.Name }}-celery
+        {{- include "java.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "java.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Release.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: _DEPLOY_REVISION
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.labels['app.version']
+            - name: _POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: ELASTIC_APM_SERVICE_NODE_NAME
+              value: "$(_POD_NAME):$(_DEPLOY_REVISION)"
+            - name: ELASTIC_APM_SERVICE_NAME
+              value: {{ .Release.Name }}
+          command:
+            - celery
+            - "-A"
+            - {{ .Values.celery.name | default "app" }}
+            - worker
+            - "--loglevel=info"
+            - "-Q"
+            - celery,celery:1
+          livenessProbe:
+            exec:
+              command:
+                - celery
+                - "-A"
+                - {{ .Values.celery.name | default "app" }}
+                - status
+            initialDelaySeconds: 10
+            timeoutSeconds: 5
+            periodSeconds: 30
+          resources:
+            {{- toYaml .Values.celery.resources | nindent 12 }}
+          {{- include "java.envFrom" . | nindent 10}}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- end }}
