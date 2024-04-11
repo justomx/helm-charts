@@ -123,6 +123,16 @@ entries:
     urls:
     - https://github.com/justomx/helm-charts/releases/download/java-0.1.4/java-0.1.4.tgz
     version: 0.1.4
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-04-11T23:22:04.969640639Z"
+    description: Base helm chart for django services projects
+    digest: 34432804f81cc6ae4559f44a0ec12bf69998403ef80183763d1cd672b772a909
+    name: java
+    type: application
+    urls:
+    - https://github.com/justomx/helm-charts/releases/download/java-0.1.1/java-0.1.1.tgz
+    version: 0.1.1
   nodejs:
   - apiVersion: v2
     appVersion: latest
@@ -244,4 +254,4 @@ entries:
     urls:
     - https://github.com/justomx/helm-charts/releases/download/nodejs-0.0.1/nodejs-0.0.1.tgz
     version: 0.0.1
-generated: "2024-04-11T23:21:39.111814871Z"
+generated: "2024-04-11T23:22:04.96969526Z"
