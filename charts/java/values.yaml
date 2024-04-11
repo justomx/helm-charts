@@ -34,7 +34,7 @@ securityContext: {}
 # runAsUser: 1000
 
 # rest api django app
-restApi:
+restApi: 
   enabled: true
 
 # Custom liveness and readiness probes for deployment
