@@ -1,5 +1,5 @@
 apiVersion: v2
-name: django
+name: java
 description: Base helm chart for django services projects
 
 # A chart can be either an 'application' or a 'library' chart.
