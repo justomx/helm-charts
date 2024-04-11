@@ -112,6 +112,17 @@ entries:
     urls:
     - https://github.com/justomx/helm-charts/releases/download/ingress-0.1.0/ingress-0.1.0.tgz
     version: 0.1.0
+  java:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-04-11T23:21:39.111763675Z"
+    description: Base helm chart for django services projects
+    digest: ce02549654ad3a5f5f10b9755d63317a1fdd940f6ff8ae8d3f4a53e682f5b16b
+    name: java
+    type: application
+    urls:
+    - https://github.com/justomx/helm-charts/releases/download/java-0.1.4/java-0.1.4.tgz
+    version: 0.1.4
   nodejs:
   - apiVersion: v2
     appVersion: latest
@@ -233,4 +244,4 @@ entries:
     urls:
     - https://github.com/justomx/helm-charts/releases/download/nodejs-0.0.1/nodejs-0.0.1.tgz
     version: 0.0.1
-generated: "2023-11-01T22:12:35.146449568Z"
+generated: "2024-04-11T23:21:39.111814871Z"
